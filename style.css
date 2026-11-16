@@ -1,0 +1,63 @@
+html {
+  background: #edf2f7;
+}
+
+body {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 500px;
+  margin: 35px auto;
+  padding: 24px;
+  color: #263445;
+  font-family: Arial;
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+  color: #28527a;
+}
+
+.formula-ejemplo {
+  text-align: center;
+  font-size: 18px;
+}
+
+.coeficiente {
+  padding: 10px;
+  border-radius: 5px;
+  background: #f1f5f9;
+}
+
+span {
+  font-weight: bold;
+  color: #28527a;
+}
+
+button {
+  width: 100%;
+  padding: 11px;
+  margin-bottom: 15px;
+  border: 0;
+  border-radius: 5px;
+  background: #3975a8;
+  color: white;
+  font-size: 16px;
+}
+
+#cajaLineal, #cajaAfin {
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border: 1px solid #cbd9e5;
+  border-left: 4px solid #e4ad43;
+  border-radius: 5px;
+  background: #fffefa;
+}
+
+#cajaLineal h2, #cajaAfin h2 {
+  margin-top: 5px;
+}
+
+a {
+  color: #28527a;
+}
