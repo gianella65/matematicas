@@ -1,31 +1,41 @@
+var coeficienteAfin = 0;
+var coeficienteLineal = 0;
+var inclinacionLineal = "constante";
+
 function generar() {
-  var b = Math.round(Math.random() * 20) - 10;
-  var c = Math.round(Math.random() * 20) - 10;
-  var inclinacion = "constante";
+  coeficienteLineal = Math.floor(Math.random() * 21) - 10;
+  coeficienteAfin = Math.floor(Math.random() * 21) - 10;
+  inclinacionLineal = "constante";
 
-  if (c == 0) {
-    c = 1;
+  if (coeficienteLineal > 0) {
+    inclinacionLineal = "creciente";
+  } else if (coeficienteLineal < 0) {
+    inclinacionLineal = "decreciente";
   }
 
-  if (b > 0) {
-    inclinacion = "creciente";
-  } else if (b < 0) {
-    inclinacion = "decreciente";
-  }
+  document.getElementById("valorB").textContent = coeficienteLineal;
+  document.getElementById("funcionLineal").textContent = "f(x) = " + coeficienteLineal + "x";
+  document.getElementById("pendienteLineal").textContent = "Es " + inclinacionLineal + ".";
 
-  document.getElementById("valorB").innerHTML = b;
-  document.getElementById("valorC").innerHTML = c;
+  document.getElementById("cajaLineal").hidden = false;
+  document.getElementById("cajaAfin").hidden = true;
+  document.getElementById("afinNoNecesaria").hidden = coeficienteAfin !== 0;
+  document.getElementById("solicitarAfin").hidden = coeficienteAfin === 0;
+}
 
-  document.getElementById("funcionLineal").innerHTML = "f(x) = " + b + "x";
-  document.getElementById("pendienteLineal").innerHTML = "Es " + inclinacion + ".";
-
+function mostrarAfin() {
+  var c = coeficienteAfin;
   var signo = " + " + c;
   if (c < 0) {
     signo = " - " + (c * -1);
   }
 
-  document.getElementById("funcionAfin").innerHTML = "f(x) = " + b + "x" + signo;
-  document.getElementById("corteY").innerHTML = "Corta el eje Y en (0, " + c + ").";
-  document.getElementById("inclinacionAfin").innerHTML = "Es " + inclinacion + ".";
+  document.getElementById("valorC").textContent = c;
+  document.getElementById("funcionAfin").textContent = "f(x) = " + coeficienteLineal + "x" + signo;
+  document.getElementById("corteY").textContent = "Corta el eje Y en (0, " + c + ").";
+  document.getElementById("inclinacionAfin").textContent = "Es " + inclinacionLineal + ".";
+  document.getElementById("cajaAfin").hidden = false;
 }
-generar();
+
+document.getElementById("generar").addEventListener("click", generar);
+document.getElementById("solicitarAfin").addEventListener("click", mostrarAfin);

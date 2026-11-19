@@ -10,20 +10,22 @@
     <p class="formula-ejemplo">Lineal: f(x) = bx</p>
     <p class="formula-ejemplo">Afín: f(x) = bx + c</p>
     <p class="coeficiente">b = <span id="valorB">?</span></p>
-    <p class="coeficiente">c = <span id="valorC">?</span></p>
-    <button onclick="generar()">Generar funciones</button>
-<div id="cajaLineal">
-    <h2>Función lineal</h2>
-    <p id="funcionLineal"></p>
-    <p>Pasa por el origen (0, 0).</p>
-    <p id="pendienteLineal"></p>
-</div>
-<div id="cajaAfin">
-    <h2>Función afín</h2>
-    <p id="funcionAfin"></p>
-    <p id="corteY"></p>
-    <p id="inclinacionAfin"></p>
-</div>
+    <button id="generar">Generar función lineal</button>
+    <div id="cajaLineal" hidden>
+        <h2>Función lineal</h2>
+        <p id="funcionLineal"></p>
+        <p>Pasa por el origen (0, 0).</p>
+        <p id="pendienteLineal"></p>
+        <button id="solicitarAfin" hidden>Mostrar función afín</button>
+        <p id="afinNoNecesaria" hidden>La función afín no hace falta: como c = 0, coincide con la función lineal.</p>
+    </div>
+    <div id="cajaAfin" hidden>
+        <h2>Función afín</h2>
+        <p>c = <span id="valorC">?</span></p>
+        <p id="funcionAfin"></p>
+        <p id="corteY"></p>
+        <p id="inclinacionAfin"></p>
+    </div>
     <p><a href="https://www.geogebra.org/classic">Ver en GeoGebra</a></p>
     <script src="script.js"></script>
 </body>
