@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>    
+<!-- Configuración de la página -->
 <meta charset="UTF-8">
 <title>Clasificador de Funciones</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Título y valores de los coeficientes -->
 <h1>Clasificador de Funciones</h1>
-
 <p id="valorB">b = 0</p>
 <p id="valorC">c = 0</p>
 
+<!-- Botón para generar nuevos valores -->
 <button id="generar">Generar / Cambiar</button>
 
+<!-- Resultado cuando la función es lineal -->
 <div class="caja" id="lineal">
 <h3>FUNCIÓN LINEAL</h3>
 <p id="resultadoLineal"></p>
 </div>
 
+<!-- Resultado cuando la función es afín -->
 <div class="caja" id="afin">
 <h3>FUNCIÓN AFÍN</h3>
 <p id="resultadoAfin"></p>
 </div>
 
+<!-- Resultado cuando la función es constante -->
 <div class="caja" id="constante">
 <h3>FUNCIÓN CONSTANTE</h3>
 <p id="resultadoConstante"></p>
 </div>
 
+<!-- Resultado cuando ambos coeficientes son cero -->
 <div class="caja" id="noHay">
 <h3>NO HAY FUNCIÓN</h3>
 <p id="resultadoNoHay"></p>
 </div>
 
+<!-- Título y espacio para la gráfica de GeoGebra -->
 <h2>Gráfica en GeoGebra</h2>
 <div id="ggb-element"></div>
 
+<!-- Pie de página -->
 <footer class="footer">Clasificador de Funciones</footer>
 
+<!-- Carga GeoGebra y el código de la página -->
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <script src="script.js"></script>
 

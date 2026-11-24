@@ -1,3 +1,4 @@
+/* Fondo, fuente y distribución de la página */
 body {
 margin: 0;
 min-height: 100vh;
@@ -8,16 +9,19 @@ font-family: Arial;
 text-align: center;
 }
 
+/* Color de los títulos */
 h1, h3 {
 color: #8064a8;
 }
 
+/* Apariencia de los textos */
 p {
 background: white;
 padding: 10px;
 border-radius: 10px;
 }
 
+/* Apariencia del botón */
 button {
 background: #aa90cf;
 color: white;
@@ -26,6 +30,7 @@ padding: 12px;
 border-radius: 10px;
 }
 
+/* Tarjetas de resultados */
 .caja {
 display: none;
 background: white;
@@ -39,16 +44,19 @@ box-sizing: border-box;
 text-align: left;
 }
 
+/* Mantiene los saltos de línea de los resultados */
 .caja p {
 white-space: pre-line;
 }
 
+/* Tamaño y centrado de la gráfica */
 #ggb-element {
 margin: 0 auto;
 max-width: 800px;
 height: 450px;
 }
 
+/* Color y espacio del pie de página */
 .footer {
 width: 100%;
 margin-top: 40px;
