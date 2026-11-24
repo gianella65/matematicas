@@ -1,41 +1,71 @@
-var coeficienteAfin = 0;
-var coeficienteLineal = 0;
-var inclinacionLineal = "constante";
+let b = 0;
+let c = 0;
+let geo = null;
 
-function generar() {
-  coeficienteLineal = Math.floor(Math.random() * 21) - 10;
-  coeficienteAfin = Math.floor(Math.random() * 21) - 10;
-  inclinacionLineal = "constante";
+let applet = new GGBApplet({
+appName: "graphing",
+width: 800,
+height: 450,
+showToolBar: false,
+showMenuBar: false,
+appletOnLoad: function(g) {
+geo = g;
+}
+}, true);
 
-  if (coeficienteLineal > 0) {
-    inclinacionLineal = "creciente";
-  } else if (coeficienteLineal < 0) {
-    inclinacionLineal = "decreciente";
-  }
+window.addEventListener("load", function() {
+applet.inject("ggb-element");
+});
 
-  document.getElementById("valorB").textContent = coeficienteLineal;
-  document.getElementById("funcionLineal").textContent = "f(x) = " + coeficienteLineal + "x";
-  document.getElementById("pendienteLineal").textContent = "Es " + inclinacionLineal + ".";
+document.getElementById("generar").onclick = function() {
 
-  document.getElementById("cajaLineal").hidden = false;
-  document.getElementById("cajaAfin").hidden = true;
-  document.getElementById("afinNoNecesaria").hidden = coeficienteAfin !== 0;
-  document.getElementById("solicitarAfin").hidden = coeficienteAfin === 0;
+b = Math.floor(Math.random() * 7) - 3;
+c = Math.floor(Math.random() * 7) - 3;
+
+document.getElementById("valorB").innerText = "b = " + b;
+document.getElementById("valorC").innerText = "c = " + c;
+
+let cajas = document.querySelectorAll(".caja");
+
+for (let i = 0; i < cajas.length; i++) {
+cajas[i].style.display = "none";
 }
 
-function mostrarAfin() {
-  var c = coeficienteAfin;
-  var signo = " + " + c;
-  if (c < 0) {
-    signo = " - " + (c * -1);
-  }
+let formula = "f(x) = " + b + "x";
+if (c > 0) formula += " + " + c;
+if (c < 0) formula += " - " + Math.abs(c);
 
-  document.getElementById("valorC").textContent = c;
-  document.getElementById("funcionAfin").textContent = "f(x) = " + coeficienteLineal + "x" + signo;
-  document.getElementById("corteY").textContent = "Corta el eje Y en (0, " + c + ").";
-  document.getElementById("inclinacionAfin").textContent = "Es " + inclinacionLineal + ".";
-  document.getElementById("cajaAfin").hidden = false;
+let texto = "Fórmula: " + formula;
+
+if (b == 0 && c == 0) {
+document.getElementById("noHay").style.display = "block";
+document.getElementById("resultadoNoHay").innerText = "No hay función.";
 }
 
-document.getElementById("generar").addEventListener("click", generar);
-document.getElementById("solicitarAfin").addEventListener("click", mostrarAfin);
+else if (b == 0) {
+document.getElementById("constante").style.display = "block";
+texto += "\nEs una línea horizontal.";
+texto += "\nCorta el eje Y en (0, " + c + ").";
+texto += "\nEs constante.";
+document.getElementById("resultadoConstante").innerText = texto;
+}
+
+else if (c == 0) {
+document.getElementById("lineal").style.display = "block";
+texto += "\nPasa por el origen (0, 0).";
+texto += b > 0 ? "\nEs creciente." : "\nEs decreciente.";
+document.getElementById("resultadoLineal").innerText = texto;
+}
+
+else {
+document.getElementById("afin").style.display = "block";
+texto += "\nNo pasa por el origen.";
+texto += "\nCorta el eje Y en (0, " + c + ").";
+texto += b > 0 ? "\nEs creciente." : "\nEs decreciente.";
+document.getElementById("resultadoAfin").innerText = texto;
+}
+
+if (geo != null) {
+geo.evalCommand("f(x)=" + b + "*x+" + c);
+}
+};

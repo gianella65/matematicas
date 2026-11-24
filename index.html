@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Funciones lineales y afines</title>
-    <link rel="stylesheet" href="style.css">
+<head>    
+<meta charset="UTF-8">
+<title>Clasificador de Funciones</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Funciones lineales y afines</h1>
-    <p class="formula-ejemplo">Lineal: f(x) = bx</p>
-    <p class="formula-ejemplo">Afín: f(x) = bx + c</p>
-    <p class="coeficiente">b = <span id="valorB">?</span></p>
-    <button id="generar">Generar función lineal</button>
-    <div id="cajaLineal" hidden>
-        <h2>Función lineal</h2>
-        <p id="funcionLineal"></p>
-        <p>Pasa por el origen (0, 0).</p>
-        <p id="pendienteLineal"></p>
-        <button id="solicitarAfin" hidden>Mostrar función afín</button>
-        <p id="afinNoNecesaria" hidden>La función afín no hace falta: como c = 0, coincide con la función lineal.</p>
-    </div>
-    <div id="cajaAfin" hidden>
-        <h2>Función afín</h2>
-        <p>c = <span id="valorC">?</span></p>
-        <p id="funcionAfin"></p>
-        <p id="corteY"></p>
-        <p id="inclinacionAfin"></p>
-    </div>
-    <p><a href="https://www.geogebra.org/classic">Ver en GeoGebra</a></p>
-    <script src="script.js"></script>
+
+<h1>Clasificador de Funciones</h1>
+
+<p id="valorB">b = 0</p>
+<p id="valorC">c = 0</p>
+
+<button id="generar">Generar / Cambiar</button>
+
+<div class="caja" id="lineal">
+<h3>FUNCIÓN LINEAL</h3>
+<p id="resultadoLineal"></p>
+</div>
+
+<div class="caja" id="afin">
+<h3>FUNCIÓN AFÍN</h3>
+<p id="resultadoAfin"></p>
+</div>
+
+<div class="caja" id="constante">
+<h3>FUNCIÓN CONSTANTE</h3>
+<p id="resultadoConstante"></p>
+</div>
+
+<div class="caja" id="noHay">
+<h3>NO HAY FUNCIÓN</h3>
+<p id="resultadoNoHay"></p>
+</div>
+
+<h2>Gráfica en GeoGebra</h2>
+<div id="ggb-element"></div>
+
+<footer class="footer">Clasificador de Funciones</footer>
+
+<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
